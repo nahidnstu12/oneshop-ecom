@@ -5,9 +5,10 @@ import {
   ShoppingCartOutlined,
 } from "@material-ui/icons";
 import Icon from "../common/Icon";
-import DropDown from "../common/DropDown";
+import {DropDown} from "../common/DropDown";
 import Link from "next/link";
-import { category } from "../../utils/services";
+import { searchbycategory } from "../../utils/services";
+import { authenticated } from "../../utils/constant";
 
 export default function Header() {
   return (
@@ -25,7 +26,7 @@ export default function Header() {
 
         <div className="w-full max-w-2xl flex ">
           <DropDown
-            lists={category}
+            lists={searchbycategory}
             width="w-40"
             styles="border border-primary"
           />
@@ -48,9 +49,11 @@ export default function Header() {
           <Icon text="Cart" url="#" count="true" numberOfItems={6}>
             <ShoppingCartOutlined fontSize="large" />
           </Icon>
-          <Icon text="Account" url="#">
-            <PersonOutlineOutlined fontSize="large" />
-          </Icon>
+          {authenticated && (
+            <Icon text="Account" url="#">
+              <PersonOutlineOutlined fontSize="large" />
+            </Icon>
+          )}
         </div>
       </div>
     </header>

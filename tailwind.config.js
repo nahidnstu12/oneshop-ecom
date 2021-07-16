@@ -21,9 +21,10 @@ module.exports = {
         sans: ["montserrat", ...defaultTheme.fontFamily.sans],
         roboto: ["Roboto"],
       },
-      colors:{
-        'primary':"#fd3d57"
-      }
+      colors: {
+        primary: "#fd3d57",
+        blue: { primary: "#2B2D42" },
+      },
     },
   },
   variants: {
